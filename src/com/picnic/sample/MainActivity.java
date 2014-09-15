@@ -36,7 +36,21 @@ public class MainActivity extends Activity implements OnApiListener{
  
         mLv.setAdapter(adapter);
         
-        searchAsyncTask task = new searchAsyncTask(this);
+   	 
+        String uid = "ikuko";
+        double lat = 37.42;
+   	 	double lon = 138.62;
+   	 	int status = 1;
+   	 	String message = "hello";
+   	 
+   	 
+        String searchUrl = "http://picnic.mydns.jp:3000/match/search?uid=" + uid + "&lat=" + lat + "&lon=" + lon;
+        String cofeingUrl = "http://picnic.mydns.jp:3000/match/cofeing?lon=" + lon + "&lat=" + lat;
+        String statusUrl = "http://picnic.mydns.jp:3000/match/status?uid=" + uid + "&status=" + status;
+        String sendingUrl = "http://picnic.mydns.jp:3000/match/sending?uid=" + uid + "&message=" + message;
+        String receiveUrl = "http://picnic.mydns.jp:3000/match/receive?uid=" + uid; 
+        
+        searchAsyncTask task = new searchAsyncTask(this,searchUrl);
         task.execute();
     }
 

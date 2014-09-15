@@ -20,18 +20,22 @@ public class searchAsyncTask extends AsyncTask<String, Integer, String>{
 // private GetItemLightApi mApi = null;
 
    public OnApiListener mListener;
-   public searchAsyncTask(OnApiListener listener) {
+   public String mUrl;
+   
+   public searchAsyncTask(OnApiListener listener , String url) {
 
        this.mListener = listener;
-//       mApi = new GetApi();
+       this.mUrl = url;
+       //       mApi = new GetApi();
    }
 
  @Override
  protected String doInBackground(String... params) {
 
-     String url = "http://picnic.mydns.jp:3000/match/search";
+    
+    		 
      DefaultHttpClient client = new DefaultHttpClient();
-     HttpUriRequest method = new HttpGet(url);
+     HttpUriRequest method = new HttpGet(mUrl);
      HttpResponse response = null;
      
      String result = "";
